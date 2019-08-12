@@ -327,7 +327,7 @@ class App extends Component {
 
     let del_number = 0;
     let category = e.concat();
-    let M_category = e.concat();
+    let M_category = e.concat()
 
     for (let i = 0; i < category.length-1; i++) {
 
@@ -355,7 +355,7 @@ class App extends Component {
       };
     };
 
-    return {Youken:e,category}
+    return {e,category}
   }
 
   // 必修科目判定メソッド
@@ -388,14 +388,10 @@ class App extends Component {
     for (let k = 0; k < number.length; k++) {
 
       let number_exp = new RegExp('(^)' + number[k]);
-      // console.log(number_exp);
-      // console.log(score.科目番号);
       let isMatch = number_exp.test(score.科目番号);
    
-      if (isMatch) {
-        // console.table(isMatch); 
-        return true;
-        }
+      if (isMatch) return true;
+        
     }
 
     // 科目名のマッチング
@@ -413,7 +409,7 @@ class App extends Component {
   MakeResult(Youken, score, category, result, count) {
 
     // Youken.group_sum =+parseFloat(score.単位数);
-    // category[presentYouken.No].category1_sum =+parseFloat(score.単位数);
+    // category[Youken.No].category1_sum =+parseFloat(score.単位数);
 
     result[count] = {'category1':Youken.category1, 'category2':Youken.category2, 'category3':Youken.category3, 
     'about':Youken.group,'科目番号':score.科目番号,'科目名':score.科目名,'単位数':score.単位数};
@@ -423,14 +419,13 @@ class App extends Component {
 
   jugment(){
 
-    let category = this.createCategory(this.state.Youken).category;
-    let Youken = this.createCategory(this.state.Youken).Youken;
+    let category = this.createCategory(this.state.Youken).category.concat();
+    let Youken = this.createCategory(this.state.Youken).e.concat();
     let score = this.state.score;
 
     let result = [];
     let count = 0;
 
-    console.table(Youken)
 
     // 卒業要件をループさせる
     Youken_loop:for (let i = 0; i < Youken.length - 1; i++) {
@@ -473,13 +468,12 @@ class App extends Component {
 
           // 一致した場合その成績をresultに格納
           this.MakeResult(presentYouken,presentScore,category,result,count);
-          Youken[i].group_sum =+parseFloat(presentScore.単位数);
-          
+          // Youken[i].group_sum =+parseFloat(presentScore.単位数);
           // category[presentYouken.No].category1_sum =+parseFloat(presentScore.単位数);
-          // count++;
+          count++;
 
 
-          console.log(score[j]);
+
 
           //判定した成績を削除
           score.splice(j, 1);
