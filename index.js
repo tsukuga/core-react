@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
-
+import Createtable from './Createtable/createtable'
 class App extends Component {
   constructor() {
     super();
@@ -73,7 +73,7 @@ class App extends Component {
         , { '科目番号': "1B01031", '科目名': "言語の万華鏡I", '単位数': 1.0, '成績': "C" }
         , { '科目番号': "2133143", '科目名': "基礎体育ニュースポーツ(春)", '単位数': 0.5, '成績': "A" }
         , { '科目番号': "31AB012", '科目名': "英語基礎I", '単位数': 0.5, '成績': "A" }
-        , { '科目番号': "31AB012", '科目名': "英語基礎II", '単位数': 1.5, '成績': "A" }
+        , { '科目番号': "31AB012", '科目名': "英語基礎II", '単位数': 1.0, '成績': "A" }
         , { '科目番号': "31BB012", '科目名': "異文化と英語I", '単位数': 0.5, '成績': "A" }
         , { '科目番号': "31CB012", '科目名': "総合英語I", '単位数': 0.5, '成績': "B" }
         , { '科目番号': "33AB212", '科目名': "フランス語基礎AI", '単位数': 0.5, '成績': "C" }
@@ -321,9 +321,115 @@ class App extends Component {
         },
 
         { '必修科目': 33, '選択科目': 48, '自由科目': 45, '合計': 126 }],
+      result:[],
     }
   }
+  
+  // メイン判定メソッド
+  jugment() {
 
+    let category = this.createCategory(this.state.Youken).category;
+    let Youken = this.createCategory(this.state.Youken).M_category;
+    let score = this.state.score;
+
+    let result = [];
+    let count = 0;
+
+
+    // 卒業要件をループさせる(必修科目)
+    Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
+
+      // 使用中の卒業要件
+      let presentYouken = Youken[i];
+
+      // 必修科目でなければ、次のグループへ
+      if (this.isHissyuukamoku(presentYouken.group_min)) continue Youken_loop;
+
+      //  成績データをループさせる
+      score_loop: for (let j = 0; j < score.length; j++) {
+
+        // 使用中の成績データ
+        let presentScore = score[j];
+
+        // グループの合計単位数が卒業要件の取得単位数の下限を満たしたか判定
+        let isGroupFilled = (presentYouken.group_min <= presentYouken.group_sum);
+        // 満たしていた場合成績ループを終了
+        if (isGroupFilled) break;
+
+        // 要件の除外項目に該当するかの判定
+        if (this.isRemove(presentYouken.remove, presentScore)) continue score_loop;
+
+        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+        // // // 要件の制限要素に該当するかの判定
+        // // if(isRestriction(Youken[i].restriction,score[j])){
+        // //   continue score_loop;
+        // // }
+        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+        // 成績が卒業要件に当てはまるかの検証
+        let isMaching = this.Match(presentScore, presentYouken.number, presentYouken.name);
+
+        if (isMaching) {
+          // 一致した場合その成績をresultに格納
+          this.MakeResult(presentYouken, presentScore, category, result, count);
+          count++;
+          //判定した成績を削除
+          score.splice(j, 1);
+          j--;
+        }
+
+      }
+      
+    }
+    // 卒業要件をループさせる（その他科目）
+    Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
+
+      // 使用中の卒業要件
+      let presentYouken = Youken[i];
+
+      //  成績データをループさせる
+      score_loop: for (let j = 0; j < score.length; j++) {
+
+        // 使用中の成績データ
+        let presentScore = score[j];
+        // 使用中のカテゴリー
+        let presentCategory = category[presentYouken.No];
+
+        // グループの上限判定
+        if (presentYouken.group_sum >= presentYouken.group_max) break;
+
+        // カテゴリーの上限判定
+        if (presentCategory.category1_sum >= presentCategory.category1_max) break;
+
+        // 要件の除外項目に該当するかの判定
+        if (this.isRemove(presentYouken.remove, presentScore)) continue score_loop;
+
+        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+        // // // 要件の制限要素に該当するかの判定
+        // // if(isRestriction(Youken[i].restriction,score[j])){
+        // //   continue score_loop;
+        // // }
+        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+        // 成績が卒業要件に当てはまるかの検証
+        let isMaching = this.Match(presentScore, presentYouken.number, presentYouken.name);
+
+        if (isMaching) {
+          // 一致した場合その成績をresultに格納
+          this.MakeResult(presentYouken, presentScore, category, result, count);
+          count++;
+          //判定した成績を削除
+          score.splice(j, 1);
+          j--;
+
+        }
+      }
+    }
+
+    this.setState({result:result});
+  }
+　
+  // カテゴリー作成メソッド
   createCategory(e) {
 
     let del_number = 0;
@@ -347,7 +453,7 @@ class App extends Component {
         if (check1 && check2 && check3) {
 
           // M_category[j + del_number].No = i;
-          e[j + del_number].No = i;
+          M_category[j + del_number].No = i;
           del_number++
           category.splice(j, 1);
           j--;
@@ -356,7 +462,7 @@ class App extends Component {
       };
     };
 
-    return { e, category }
+    return { M_category, category }
   }
 
   // 必修科目判定メソッド
@@ -420,121 +526,12 @@ class App extends Component {
 
   }
 
-
-  jugment() {
-
-    let category = this.createCategory(this.state.Youken).category
-    let Youken = this.createCategory(this.state.Youken).e
-    let score = this.state.score;
-
-    let result = [];
-    let count = 0;
-
-
-    // 卒業要件をループさせる
-    Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
-
-      // 使用中の卒業要件
-      let presentYouken = Youken[i];
-
-      // 必修科目でなければ、次のグループへ
-      if (this.isHissyuukamoku(presentYouken.group_min)) continue Youken_loop;
-
-      //  成績データをループさせる
-      score_loop: for (let j = 0; j < score.length; j++) {
-
-        // 使用中の成績データ
-        let presentScore = score[j];
-
-        // グループの合計単位数が卒業要件の取得単位数の下限を満たしたか判定
-        let isGroupFilled = (presentYouken.group_min <= presentYouken.group_sum);
-        // 満たしていた場合成績ループを終了
-        if (isGroupFilled) break;
-
-        // 要件の除外項目に該当するかの判定
-        if (this.isRemove(presentYouken.remove, presentScore)) continue score_loop;
-
-        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-        // // // 要件の制限要素に該当するかの判定
-        // // if(isRestriction(Youken[i].restriction,score[j])){
-        // //   continue score_loop;
-        // // }
-        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-
-        // 成績が卒業要件に当てはまるかの検証
-        let isMaching = this.Match(presentScore, presentYouken.number, presentYouken.name);
-
-        if (isMaching) {
-          // 一致した場合その成績をresultに格納
-          this.MakeResult(presentYouken, presentScore, category, result, count);
-          count++;
-          //判定した成績を削除
-          score.splice(j, 1);
-          j--;
-        }
-
-      }
-
-      console.table(result);
-      console.table(Youken);
-      console.table(category);
-    }
-    // 卒業要件をループさせる
-    Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
-
-      // 使用中の卒業要件
-      let presentYouken = Youken[i];
-
-      //  成績データをループさせる
-      score_loop: for (let j = 0; j < score.length; j++) {
-
-        // 使用中の成績データ
-        let presentScore = score[j];
-
-        // カテゴリーの上限判定
-        if (presentYouken.category1_sum >= presentYouken.category1_max) break;
-
-        // グループの上限判定
-        if (presentYouken.group_sum >= presentYouken.group_max) continue Youken_loop;
-
-        // 要件の除外項目に該当するかの判定
-        if (this.isRemove(presentYouken.remove, presentScore)) continue score_loop;
-
-        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-        // // // 要件の制限要素に該当するかの判定
-        // // if(isRestriction(Youken[i].restriction,score[j])){
-        // //   continue score_loop;
-        // // }
-        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-
-        // 成績が卒業要件に当てはまるかの検証
-        let isMaching = this.Match(presentScore, presentYouken.number, presentYouken.name);
-
-        if (isMaching) {
-          // 一致した場合その成績をresultに格納
-          this.MakeResult(presentYouken, presentScore, category, result, count);
-          count++;
-          //判定した成績を削除
-          score.splice(j, 1);
-          j--;
-
-        }
-      }
-    }
-
-    console.table(result);
-    console.table(Youken);
-    console.table(category);
-  }
-
-
-
-
   render() {
     return (
       <div>
         <Hello name={this.state.name} />
         <button type="button" onClick={this.jugment.bind(this)}>set反映</button>
+        <Createtable score={this.state.result} />
       </div>
     );
   }
