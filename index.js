@@ -61,7 +61,7 @@ class App extends Component {
         , { '科目番号': "31GB012", '科目名': "総合英語II", '単位数': 1.0, '成績': "A" }
         , { '科目番号': "33CB212", '科目名': "フランス語基礎AII", '単位数': 1.0, '成績': "B" }
         , { '科目番号': "33EB222", '科目名': "フランス語基礎BII", '単位数': 1.0, '成績': "C" }
-        , { '科目番号': "AA21721", '科目名': "グローバル人材養成講義XVIII", '単位数': " 1.5", '成績': "A" }
+        , { '科目番号': "AA21721", '科目名': "グローバル人材養成講義XVIII", '単位数': 1.5, '成績': "A" }
         , { '科目番号': "BC50021", '科目名': "国際学概論II", '単位数': 1.0, '成績': "A" }
         , { '科目番号': "BC50041", '科目名': "国際学概論IV", '単位数': 1.0, '成績': "B" }
         , { '科目番号': "BC51071", '科目名': "国際経済論", '単位数': 2.0, '成績': "A" }
@@ -73,7 +73,7 @@ class App extends Component {
         , { '科目番号': "1B01031", '科目名': "言語の万華鏡I", '単位数': 1.0, '成績': "C" }
         , { '科目番号': "2133143", '科目名': "基礎体育ニュースポーツ(春)", '単位数': 0.5, '成績': "A" }
         , { '科目番号': "31AB012", '科目名': "英語基礎I", '単位数': 0.5, '成績': "A" }
-        , { '科目番号': "31AB012", '科目名': "英語基礎II", '単位数': 0.5, '成績': "A" }
+        , { '科目番号': "31AB012", '科目名': "英語基礎II", '単位数': 1.5, '成績': "A" }
         , { '科目番号': "31BB012", '科目名': "異文化と英語I", '単位数': 0.5, '成績': "A" }
         , { '科目番号': "31CB012", '科目名': "総合英語I", '単位数': 0.5, '成績': "B" }
         , { '科目番号': "33AB212", '科目名': "フランス語基礎AI", '単位数': 0.5, '成績': "C" }
@@ -93,231 +93,231 @@ class App extends Component {
 
         {
           category1: "専門科目", category2: "-", category3: "必修科目", group: "卒業論文",
-          number: ["BC14908"], name: ["-"], group_min: 6, group_max: 6,group_sum: 0,
-          category1_min: 6, category1_max: 6, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC14908"], name: ["-"], group_min: 6, group_max: 6, group_sum: 0,
+          category1_min: 6, category1_max: 6, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門科目", category2: "-", category3: "選択科目", group: "BC12群",
-          number: ["BC12"], name: ["-"], group_min: 14, group_max: 24,group_sum: 0,
-          category1_min: 30, category1_max: 30, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC12"], name: ["-"], group_min: 14, group_max: 24, group_sum: 0,
+          category1_min: 30, category1_max: 30, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門科目", category2: "-", category3: "選択科目", group: "BC11,BC16,BE22群",
-          number: ["BC11", "BC16", "BE22"], name: ["-"], group_min: 0, group_max: 10,group_sum: 0,
-          category1_min: 30, category1_max: 30, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC11", "BC16", "BE22"], name: ["-"], group_min: 0, group_max: 10, group_sum: 0,
+          category1_min: 30, category1_max: 30, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門科目", category2: "-", category3: "選択科目", group: "BC13群",
-          number: ["BC13"], name: ["-"], group_min: 6, group_max: 6,group_sum: 0,
-          category1_min: 30, category1_max: 30, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC13"], name: ["-"], group_min: 6, group_max: 6, group_sum: 0,
+          category1_min: 30, category1_max: 30, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門科目", category2: "-", category3: "自由科目", group: "インターンシップ",
-          number: ["BC14"], name: ["-"], group_min: 0, group_max: 4,group_sum: 0,
-          category1_min: 17, category1_max: 44, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC14"], name: ["-"], group_min: 0, group_max: 4, group_sum: 0,
+          category1_min: 17, category1_max: 44, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門科目", category2: "-", category3: "自由科目",
           group: "BC11,BC12,BC13,BC16,BE22",
-          number: ["BC11", "BC12", "BC13", "BC16", "BE22"], name: ["-"], group_min: 17, group_max: 40,group_sum: 0,
-          category1_min: 17, category1_max: 44, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC11", "BC12", "BC13", "BC16", "BE22"], name: ["-"], group_min: 17, group_max: 40, group_sum: 0,
+          category1_min: 17, category1_max: 44, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
 
         {
           category1: "専門基礎科目", category2: "-", category3: "必修科目",
           group: "国際学概論I",
-          number: ["BC50011"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 5, category1_max: 5, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC50011"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 5, category1_max: 5, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門基礎科目", category2: "-", category3: "必修科目",
           group: "国際学概論II",
-          number: ["BC50021"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 5, category1_max: 5, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC50021"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 5, category1_max: 5, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門基礎科目", category2: "-", category3: "必修科目",
           group: "国際学概論III",
-          number: ["BC50031"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 5, category1_max: 5, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC50031"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 5, category1_max: 5, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門基礎科目", category2: "-", category3: "必修科目",
           group: "国際学概論IV",
-          number: ["BC50041"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 5, category1_max: 5, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC50041"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 5, category1_max: 5, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門基礎科目", category2: "-", category3: "必修科目",
           group: "国際学概論V",
-          number: ["BC50051"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 5, category1_max: 5, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC50051"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 5, category1_max: 5, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門基礎科目", category2: "-", category3: "選択科目",
           group: "BC51(EDS,EDを除く)",
-          number: ["BC51"], name: ["–"], group_min: 14, group_max: 14,group_sum: 0,
-          category1_min: 18, category1_max: 18, remove: ["English Discussion Seminar", "English Debate"], restriction: [["-"], ["-"]],
+          number: ["BC51"], name: ["–"], group_min: 14, group_max: 14, group_sum: 0,
+          category1_min: 18, category1_max: 18, category1_sum: 0, remove: ["English Discussion Seminar", "English Debate"], restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門基礎科目", category2: "-", category3: "選択科目",
           group: "EDS,ED",
-          number: ["-"], name: ["English Discussion Seminar", "English Debate"], group_min: 4, group_max: 4,group_sum: 0,
-          category1_min: 18, category1_max: 18, remove: "-", restriction: [["-"], ["-"]],
+          number: ["-"], name: ["English Discussion Seminar", "English Debate"], group_min: 4, group_max: 4, group_sum: 0,
+          category1_min: 18, category1_max: 18, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "専門基礎科目", category2: "-", category3: "自由科目",
           group: "BC51,BE21",
-          number: ["BC51", "BE21"], name: ["–"], group_min: 4, group_max: 10,group_sum: 0,
-          category1_min: 4, category1_max: 10, remove: "-", restriction: [["-"], ["-"]],
+          number: ["BC51", "BE21"], name: ["–"], group_min: 4, group_max: 10, group_sum: 0,
+          category1_min: 4, category1_max: 10, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "総合科目I",
-          number: ["11", "12"], name: ["–"], group_min: 2, group_max: 2,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["11", "12"], name: ["–"], group_min: 2, group_max: 2, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "総合科目IIA",
-          number: ["1A"], name: ["–"], group_min: 2, group_max: 2,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["1A"], name: ["–"], group_min: 2, group_max: 2, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "総合科目IIB",
-          number: ["1B"], name: ["–"], group_min: 2, group_max: 2,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["1B"], name: ["–"], group_min: 2, group_max: 2, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "総合科目IIA,IIB,IIC",
-          number: ["1A", "1B", "1C"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["1A", "1B", "1C"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "総合科目III",
-          number: ["1D", "1E", "1F", "1G"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["1D", "1E", "1F", "1G"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "基礎体育",
-          number: ["21", "25"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["21", "25"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "応用体育",
-          number: ["22"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["22"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "発展体育",
-          number: ["23", "26"], name: ["–"], group_min: 1, group_max: 1,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["23", "26"], name: ["–"], group_min: 1, group_max: 1, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "第一外国語",
           number: ["31A", "31B", "31C", "31E", "31F", "31G"],
-          name: ["–"], group_min: 4.5, group_max: 4.5,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          name: ["–"], group_min: 4.5, group_max: 4.5, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "第二外国語",
           number: ["32A", "32B", "32C", "32E", "3231", "3234", "33A", "33B", "33C", "33E", "3331", "3334", "34A", "34B", "34C", "34E", "3431", "3434", "35A", "35B", "35C", "35E", "3531", "3534", "36A", "36B", "36C", "36E", "3631", "3634", "37A", "37B", "37C", "37E", "3731", "3734", "38A", "38B", "38C", "38E", "3831", "3834"],
-          name: ["–"], group_min: 4.5, group_max: 4.5,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          name: ["–"], group_min: 4.5, group_max: 4.5, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "必修科目",
           group: "情報",
-          number: ["61", "62"], name: ["–"], group_min: 2, group_max: 2,group_sum: 0,
-          category1_min: 22, category1_max: 22, remove: "-", restriction: [["-"], ["-"]],
+          number: ["61", "62"], name: ["–"], group_min: 2, group_max: 2, group_sum: 0,
+          category1_min: 22, category1_max: 22, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "自由科目",
           group: "総合科目I,II",
-          number: ["1"], name: ["–"], group_min: 0, group_max: 6,group_sum: 0,
-          category1_min: 0, category1_max: 21, remove: "-", restriction: [["-"], ["-"]],
+          number: ["1"], name: ["–"], group_min: 0, group_max: 6, group_sum: 0,
+          category1_min: 0, category1_max: 21, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "自由科目",
           group: "体育",
-          number: ["28"], name: ["–"], group_min: 0, group_max: 1,group_sum: 0,
-          category1_min: 0, category1_max: 21, remove: "-", restriction: [["-"], ["-"]],
+          number: ["28"], name: ["–"], group_min: 0, group_max: 1, group_sum: 0,
+          category1_min: 0, category1_max: 21, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "自由科目",
           group: "外国語",
-          number: ["3"], name: ["–"], group_min: 0, group_max: 6,group_sum: 0,
-          category1_min: 0, category1_max: 21, remove: "-", restriction: [["-"], ["-"]],
+          number: ["3"], name: ["–"], group_min: 0, group_max: 6, group_sum: 0,
+          category1_min: 0, category1_max: 21, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "自由科目",
           group: "情報(上級)",
-          number: ["63"], name: ["–"], group_min: 0, group_max: 4,group_sum: 0,
-          category1_min: 0, category1_max: 21, remove: "-", restriction: [["-"], ["-"]],
+          number: ["63"], name: ["–"], group_min: 0, group_max: 4, group_sum: 0,
+          category1_min: 0, category1_max: 21, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "自由科目",
           group: "国語",
-          number: ["5"], name: ["–"], group_min: 0, group_max: 2,group_sum: 0,
-          category1_min: 0, category1_max: 21, remove: "-", restriction: [["-"], ["-"]],
+          number: ["5"], name: ["–"], group_min: 0, group_max: 2, group_sum: 0,
+          category1_min: 0, category1_max: 21, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "共通科目", category3: "自由科目",
           group: "芸術",
-          number: ["4"], name: ["–"], group_min: 0, group_max: 2,group_sum: 0,
-          category1_min: 0, category1_max: 21, remove: "-", restriction: [["-"], ["-"]],
+          number: ["4"], name: ["–"], group_min: 0, group_max: 2, group_sum: 0,
+          category1_min: 0, category1_max: 21, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "関連科目", category3: "自由科目",
           group: "社会・国際学郡共通科目(BA),他学群,他学類,特設自由科目,博物館に関する科目",
           number: ["BA", "A", "BB", "C", "E", "F", "G", "H", "W", "Y", "8", "99"], name: ["–"], group_min: 0, group_max: 23,
-          group_sum: 0,category1_min: 0, category1_max: 23, remove: "-", restriction: [["-"], ["-"]],
+          group_sum: 0, category1_min: 0, category1_max: 23, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         {
           category1: "基礎科目", category2: "関連科目", category3: "自由科目",
           group: "教職に関する科目",
-          number: ["90", "91", "92", "93", "94", "95", "96", "97", "98"], name: ["–"], group_min: 0, group_max: 12,group_sum: 0,
-          category1_min: 0, category1_max: 23, remove: "-", restriction: [["-"], ["-"]],
+          number: ["90", "91", "92", "93", "94", "95", "96", "97", "98"], name: ["–"], group_min: 0, group_max: 12, group_sum: 0,
+          category1_min: 0, category1_max: 23, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
         { '必修科目': 33, '選択科目': 48, '自由科目': 45, '合計': 126 }],
@@ -330,9 +330,9 @@ class App extends Component {
     let category = e.concat();
     let M_category = e.concat()
 
-    for (let i = 0; i < category.length-1; i++) {
+    for (let i = 0; i < category.length - 1; i++) {
 
-      for (let j = i + 1; j < category.length-1; j++) {
+      for (let j = i + 1; j < category.length - 1; j++) {
 
         M_category[i + del_number].No = i;
 
@@ -356,12 +356,12 @@ class App extends Component {
       };
     };
 
-    return {e,category}
+    return { e, category }
   }
 
   // 必修科目判定メソッド
-  isHissyuukamoku(e){
-    if(e==0){return true;}
+  isHissyuukamoku(e) {
+    if (e == 0) { return true; }
   }
 
   // 除外判定メソッド
@@ -376,13 +376,14 @@ class App extends Component {
       let remove_exp = new RegExp('(^)' + remove[k]);
 
       let isRemovement = remove_exp.test(score.科目番号) || remove_exp.test(score.科目名);
-     
+
       if (isRemovement) return true;
 
     }
 
   }
 
+  　//一致判定メソッド 　
   Match(score, number, name) {
 
     // 科目番号のマッチング 
@@ -391,33 +392,36 @@ class App extends Component {
       let number_exp = new RegExp('(^)' + number[k]);
       let isMatch = number_exp.test(score.科目番号);
       if (isMatch) return true;
-        
+
     }
 
     // 科目名のマッチング
     for (let k = 0; k < name.length; k++) {
 
       let name_exp = new RegExp('(^)' + name[k]);
-     
+
       let isMatch = name_exp.test(score.科目名);
       if (isMatch) return true;
     }
 
   }
 
+  // 一致処理メソッド
   MakeResult(Youken, score, category, result, count) {
 
     Youken.group_sum += parseFloat(score.単位数);
     console.log(Youken.group_sum);
     category[Youken.No].category1_sum += parseFloat(score.単位数);
 
-    result[count] = {'category1':Youken.category1, 'category2':Youken.category2, 'category3':Youken.category3, 
-    'about':Youken.group,'科目番号':score.科目番号,'科目名':score.科目名,'単位数':score.単位数};
+    result[count] = {
+      'category1': Youken.category1, 'category2': Youken.category2, 'category3': Youken.category3,
+      'about': Youken.group, '科目番号': score.科目番号, '科目名': score.科目名, '単位数': score.単位数
+    };
 
   }
 
 
-  jugment(){
+  jugment() {
 
     let category = this.createCategory(this.state.Youken).category
     let Youken = this.createCategory(this.state.Youken).e
@@ -428,32 +432,28 @@ class App extends Component {
 
 
     // 卒業要件をループさせる
-    Youken_loop:for (let i = 0; i < Youken.length - 1; i++) {
-      
+    Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
+
       // 使用中の卒業要件
       let presentYouken = Youken[i];
-      
-      // console.log(presentYouken);
 
       // 必修科目でなければ、次のグループへ
       if (this.isHissyuukamoku(presentYouken.group_min)) continue Youken_loop;
-      
-      // console.log(presentYouken);
 
       //  成績データをループさせる
       score_loop: for (let j = 0; j < score.length; j++) {
 
         // 使用中の成績データ
-       let presentScore = score[j];
+        let presentScore = score[j];
 
         // グループの合計単位数が卒業要件の取得単位数の下限を満たしたか判定
-        let isGroupFilled = presentYouken.group_min <= presentYouken.group_sum;
+        let isGroupFilled = (presentYouken.group_min <= presentYouken.group_sum);
         // 満たしていた場合成績ループを終了
         if (isGroupFilled) break;
 
         // 要件の除外項目に該当するかの判定
         if (this.isRemove(presentYouken.remove, presentScore)) continue score_loop;
-        
+
         // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
         // // // 要件の制限要素に該当するかの判定
         // // if(isRestriction(Youken[i].restriction,score[j])){
@@ -462,99 +462,79 @@ class App extends Component {
         // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
         // 成績が卒業要件に当てはまるかの検証
-        let isMaching = this.Match(presentScore,presentYouken.number,presentYouken.name);
-        // console.log(isMaching)
+        let isMaching = this.Match(presentScore, presentYouken.number, presentYouken.name);
+
         if (isMaching) {
-
           // 一致した場合その成績をresultに格納
-          this.MakeResult(Youken[i],presentScore,category,result,count);
+          this.MakeResult(presentYouken, presentScore, category, result, count);
           count++;
+          //判定した成績を削除
+          score.splice(j, 1);
+          j--;
+        }
 
+      }
+
+      console.table(result);
+      console.table(Youken);
+      console.table(category);
+    }
+    // 卒業要件をループさせる
+    Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
+
+      // 使用中の卒業要件
+      let presentYouken = Youken[i];
+
+      //  成績データをループさせる
+      score_loop: for (let j = 0; j < score.length; j++) {
+
+        // 使用中の成績データ
+        let presentScore = score[j];
+
+        // カテゴリーの上限判定
+        if (presentYouken.category1_sum >= presentYouken.category1_max) break;
+
+        // グループの上限判定
+        if (presentYouken.group_sum >= presentYouken.group_max) continue Youken_loop;
+
+        // 要件の除外項目に該当するかの判定
+        if (this.isRemove(presentYouken.remove, presentScore)) continue score_loop;
+
+        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+        // // // 要件の制限要素に該当するかの判定
+        // // if(isRestriction(Youken[i].restriction,score[j])){
+        // //   continue score_loop;
+        // // }
+        // // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+        // 成績が卒業要件に当てはまるかの検証
+        let isMaching = this.Match(presentScore, presentYouken.number, presentYouken.name);
+
+        if (isMaching) {
+          // 一致した場合その成績をresultに格納
+          this.MakeResult(presentYouken, presentScore, category, result, count);
+          count++;
           //判定した成績を削除
           score.splice(j, 1);
           j--;
 
         }
       }
-      
-      
-      
     }
+
     console.table(result);
     console.table(Youken);
-    console.table(category)
-    // // 卒業要件をループさせる
-    // for (let i = 0; i < Youken.length - 2; i++) {
-
-    //   // 使用中の卒業要件
-    //   let presentYouken = Youken[i];
-
-
-    //   //  成績データをループさせる
-    //   score_loop: for (let j = 0; j < score.length; j++) {
-
-    //     // 使用中の成績データ
-    //     presentScore = score[j];
-    //     presentCategory = category[presentYouken.No];
-
-    //     // カテゴリーの上限判定
-    //     if (presentCategory.category1_sum >= presentYouken.category1_max) {
-    //       break;
-    //     };
-    //     // グループの上限判定
-    //     if (presentYouken.group_sum >= presentYouken.credit_max) {
-    //       break;
-    //     }
-
-    //     // 要件の除外項目に該当するかの判定
-    //     if (isRemove(presentYouken.remove, score)) {
-    //       continue score_loop;
-    //     }
-
-    //     // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-    //     // // 要件の制限要素に該当するかの判定
-    //     // if(isRestriction(Youken[i].restriction,score[j])){
-    //     //   continue score_loop;
-    //     // }
-    //     // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝未実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-
-    //     // 成績が卒業要件に当てはまるかの検証
-    //     let isMaching = Match(presentScore, presentYouken.name, presentYouken.number);
-    //     if (isMaching) {
-
-    //       // 一致した場合その成績をresultに格納
-    //       MakeResult(presentYouken, presentScore, category, result);
-
-    //       //判定した成績を削除
-    //       score.splice(j, 1);
-    //       j--;
-
-    //       break;
-
-    //     }
-    //   }
-    // }
-    
-    // console.log(result);
-    // console.log(category);
-    // console.log(Youken);
-    // console.log(score);
-    
-    console.log(parseFloat(this.state.score[1].単位数));
-    console.log(parseFloat(this.state.score[2].単位数));
-    console.log(this.state.score[1].単位数 + this.state.score[2].単位数);
-    console.log(parseFloat(this.state.score[1].単位数) + parseFloat(this.state.score[2].単位数));
-
+    console.table(category);
   }
 
 
-  
+
 
   render() {
     return (
       <div>
         <Hello name={this.state.name} />
-        <button type="button" onClick = {this.jugment.bind(this)}>set反映</button>
+        <button type="button" onClick={this.jugment.bind(this)}>set反映</button>
       </div>
     );
   }
