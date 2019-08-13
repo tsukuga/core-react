@@ -426,7 +426,9 @@ class App extends Component {
         }
       }
     }
-
+    
+    console.table(Youken);
+    console.table(category);
     this.setState({ result: result });
   }
 
