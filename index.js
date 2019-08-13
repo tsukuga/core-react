@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
 import Createtable from './Createtable/createtable'
+
 class App extends Component {
   constructor() {
     super();
@@ -321,10 +322,10 @@ class App extends Component {
         },
 
         { '必修科目': 33, '選択科目': 48, '自由科目': 45, '合計': 126 }],
-      result:[],
+      result: [],
     }
   }
-  
+
   // メイン判定メソッド
   jugment() {
 
@@ -379,7 +380,7 @@ class App extends Component {
         }
 
       }
-      
+
     }
     // 卒業要件をループさせる（その他科目）
     Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
@@ -426,13 +427,15 @@ class App extends Component {
       }
     }
 
-    this.setState({result:result});
+    this.setState({ result: result });
   }
-　
+
   // カテゴリー作成メソッド
   createCategory(e) {
 
+    // 消した個数を管理する変数
     let del_number = 0;
+
     let category = e.concat();
     let M_category = e.concat()
 
@@ -440,25 +443,29 @@ class App extends Component {
 
       for (let j = i + 1; j < category.length - 1; j++) {
 
+
         M_category[i + del_number].No = i;
 
-        if (j > i + 2) { //最適化ポイント
-          break;
-        };
+        //最適化ポイント
+        if (j > i + 2) break;
 
+
+        // カテゴリーが一致するかの判定
         const check1 = category[i].category1 === category[j].category1;
         const check2 = category[i].category2 === category[j].category2;
         const check3 = category[i].category3 === category[j].category3;
 
+        // カテゴリーが一致した場合
         if (check1 && check2 && check3) {
-
-          // M_category[j + del_number].No = i;
           M_category[j + del_number].No = i;
-          del_number++
+
+          // 判定したグループを削除する
           category.splice(j, 1);
+          del_number++
+
+          // 消したグループの分カウントを一つ戻す
           j--;
         };
-
       };
     };
 
@@ -466,30 +473,28 @@ class App extends Component {
   }
 
   // 必修科目判定メソッド
-  isHissyuukamoku(e) {
-    if (e == 0) { return true; }
+  isHissyuukamoku(Youken) {
+    if (Youken == 0) return true;
   }
 
   // 除外判定メソッド
   isRemove(remove, score) {
-
     // 除外要素が要件にない場合即リターン
     if (remove == "-") return false;
 
     // 除外要素があった場合はtrueを返す
     for (let k = 0; k < remove.length; k++) {
 
+      // 除外要素が成績にあるかの判定
       let remove_exp = new RegExp('(^)' + remove[k]);
-
       let isRemovement = remove_exp.test(score.科目番号) || remove_exp.test(score.科目名);
 
       if (isRemovement) return true;
-
     }
-
+    return false;
   }
 
-  　//一致判定メソッド 　
+  //一致判定メソッド 　
   Match(score, number, name) {
 
     // 科目番号のマッチング 
@@ -505,7 +510,6 @@ class App extends Component {
     for (let k = 0; k < name.length; k++) {
 
       let name_exp = new RegExp('(^)' + name[k]);
-
       let isMatch = name_exp.test(score.科目名);
       if (isMatch) return true;
     }
@@ -515,10 +519,13 @@ class App extends Component {
   // 一致処理メソッド
   MakeResult(Youken, score, category, result, count) {
 
+    // 一致した成績の単位数をグループ合計に格納
     Youken.group_sum += parseFloat(score.単位数);
-    console.log(Youken.group_sum);
+
+    // 一致した成績の単位数をカテゴリー合計に格納
     category[Youken.No].category1_sum += parseFloat(score.単位数);
 
+    // 一致した成績をresultに格納
     result[count] = {
       'category1': Youken.category1, 'category2': Youken.category2, 'category3': Youken.category3,
       'about': Youken.group, '科目番号': score.科目番号, '科目名': score.科目名, '単位数': score.単位数
