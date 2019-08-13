@@ -73,6 +73,7 @@ class App extends Component {
         , { '科目番号': "1B01031", '科目名': "言語の万華鏡I", '単位数': 1.0, '成績': "C" }
         , { '科目番号': "2133143", '科目名': "基礎体育ニュースポーツ(春)", '単位数': 0.5, '成績': "A" }
         , { '科目番号': "31AB012", '科目名': "英語基礎I", '単位数': 0.5, '成績': "A" }
+        , { '科目番号': "31AB012", '科目名': "英語基礎II", '単位数': 0.5, '成績': "A" }
         , { '科目番号': "31BB012", '科目名': "異文化と英語I", '単位数': 0.5, '成績': "A" }
         , { '科目番号': "31CB012", '科目名': "総合英語I", '単位数': 0.5, '成績': "B" }
         , { '科目番号': "33AB212", '科目名': "フランス語基礎AI", '単位数': 0.5, '成績': "C" }
@@ -445,10 +446,10 @@ class App extends Component {
         // 使用中の成績データ
        let presentScore = score[j];
 
-        // // グループの合計単位数が卒業要件の取得単位数の下限を満たしたか判定
-        // let isGroupFilled = presentYouken.category1_min <= presentYouken.category1_sum;
-        // // 満たしていた場合成績ループを終了
-        // if (isGroupFilled) break;
+        // グループの合計単位数が卒業要件の取得単位数の下限を満たしたか判定
+        let isGroupFilled = presentYouken.group_min <= presentYouken.group_sum;
+        // 満たしていた場合成績ループを終了
+        if (isGroupFilled) break;
 
         // 要件の除外項目に該当するかの判定
         if (this.isRemove(presentYouken.remove, presentScore)) continue score_loop;
