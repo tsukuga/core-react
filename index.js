@@ -431,7 +431,7 @@ class App extends Component {
     
     console.table(Youken);
     console.table(category);
-    this.setState({ result: category });
+    this.setState({ result: result });
   }
 
   // カテゴリー作成メソッド
