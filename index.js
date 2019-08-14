@@ -321,6 +321,8 @@ class App extends Component {
           category1_min: 0, category1_max: 23, category1_sum: 0, remove: "-", restriction: [["-"], ["-"]],
         },
 
+        { '必修科目': 0, '選択科目': 0, '自由科目': 0, '合計': 0 },
+
         { '必修科目': 33, '選択科目': 48, '自由科目': 45, '合計': 126 }],
       result: [],
     }
@@ -338,7 +340,7 @@ class App extends Component {
 
 
     // 卒業要件をループさせる(必修科目)
-    Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
+    Youken_loop: for (let i = 0; i < Youken.length - 2; i++) {
 
       // 使用中の卒業要件
       let presentYouken = Youken[i];
@@ -383,7 +385,7 @@ class App extends Component {
 
     }
     // 卒業要件をループさせる（その他科目）
-    Youken_loop: for (let i = 0; i < Youken.length - 1; i++) {
+    Youken_loop: for (let i = 0; i < Youken.length - 2; i++) {
 
       // 使用中の卒業要件
       let presentYouken = Youken[i];
@@ -429,7 +431,7 @@ class App extends Component {
     
     console.table(Youken);
     console.table(category);
-    this.setState({ result: result });
+    this.setState({ result: category });
   }
 
   // カテゴリー作成メソッド
@@ -441,9 +443,9 @@ class App extends Component {
     let category = e.concat();
     let M_category = e.concat()
 
-    for (let i = 0; i < category.length - 1; i++) {
+    for (let i = 0; i < category.length - 2; i++) {
 
-      for (let j = i + 1; j < category.length - 1; j++) {
+      for (let j = i + 1; j < category.length - 2; j++) {
 
 
         M_category[i + del_number].No = i;
@@ -526,6 +528,12 @@ class App extends Component {
 
     // 一致した成績の単位数をカテゴリー合計に格納
     category[Youken.No].category1_sum += parseFloat(score.単位数);
+
+    // 一致した成績の単位数を必修・選択・自由カテゴリー合計に格納
+    category[category.length-2][Youken.category3] += parseFloat(score.単位数);
+
+    // 一致した成績の単位数を全体合計カテゴリー合計に格納
+    category[category.length-2].合計 += parseFloat(score.単位数);
 
     // 一致した成績をresultに格納
     result[count] = {
